@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Petmanager</string>
+
+    <string-array name="pet_names">
+        <item>Krios</item>
+        <item>Oreo</item>
+        <item>Killer</item>
+        <item>Moon Bay</item>
+    </string-array>
+    <string name="step_counter">
+        android.hardware.sensor.stepcounter
+    </string>
+    <string name="step_detector">
+        android.hardware.sensor.stepdetector
+    </string>
+
+</resources>
