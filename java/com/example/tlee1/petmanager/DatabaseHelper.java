@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by tlee1 on 4/20/2016.
  */
+//Database for SQLite
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     //private static final String LOG = "DatabaseHelper";
