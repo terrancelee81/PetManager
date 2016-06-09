@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 public class PetInfo extends AppCompatActivity {
     DatabaseHelper myDbInfo;
-    Button submit, btnviewAll, btnupdate;
+    Button submit, btnviewAll, btnupdate, btnclear;
     EditText petName, breed, birthYear, vetName, vetNumber;
 
 
@@ -38,9 +38,11 @@ public class PetInfo extends AppCompatActivity {
         submit = (Button) findViewById(R.id.buttonSubmit);
         btnviewAll = (Button)findViewById(R.id.buttonView);
         btnupdate = (Button)findViewById(R.id.buttonUpdate);
+        btnclear = (Button)findViewById(R.id.buttonClear);
         onClickListener();
         viewAll();
         UpdateData();
+        ClearData();
 
 
     }
@@ -109,12 +111,24 @@ public class PetInfo extends AppCompatActivity {
                         boolean isUpdate = myDbInfo.updateData(petName.getText().toString(),
                                 breed.getText().toString(), birthYear.getText().toString(), vetName.getText().toString(),
                                 vetNumber.getText().toString());
-                        if(isUpdate == true)
+                        if (isUpdate == true)
                             Toast.makeText(PetInfo.this, "Data Updated", Toast.LENGTH_LONG).show();
                         else
                             Toast.makeText(PetInfo.this, "Data not Updated", Toast.LENGTH_LONG).show();
-                        }
+                    }
 
+                }
+        );
+    }
+
+    public void ClearData() {
+        btnclear.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(PetInfo.this, PetInfo.class);
+                        startActivity(intent);
+                    }
                 }
         );
     }

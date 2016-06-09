@@ -8,16 +8,12 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.sql.Date;
-import java.text.DateFormat;
 
 public class Petfitness extends Activity {
 
@@ -121,11 +117,12 @@ public class Petfitness extends Activity {
     };
 
          public void resetSteps(View v) {
-        buttonReset.setOnClickListener(
+              buttonReset.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v){
                              /*boolean isInserted =*/
+                        new EndpointsAsyncTask().execute(numSteps);
                         myDbFitness.insertSteps(textViewSteps.getText().toString()/*, textDate.getText().toString()*/);
                         /* if(isInserted =true)*/
                         numSteps = 0;
